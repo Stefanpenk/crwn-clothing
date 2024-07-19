@@ -1,4 +1,4 @@
-import { initializeApp } from "firebase/app";
+//import { initializeApp } from "firebase/app";
 import {
   getAuth,
   signInWithRedirect,
@@ -22,14 +22,14 @@ import {
 } from "firebase/firestore";
 
 // Your web app's Firebase configuration
-const firebaseConfig = {
+/*const firebaseConfig = {
   apiKey: "AIzaSyDg-bdl-A4-1vC0ty8dV8PdSS8X6JuU-g8",
   authDomain: "crwn-clothing-db-6e9b5.firebaseapp.com",
   projectId: "crwn-clothing-db-6e9b5",
   storageBucket: "crwn-clothing-db-6e9b5.appspot.com",
   messagingSenderId: "273473963090",
   appId: "1:273473963090:web:03bb6c6d178f5c2705cb8b",
-};
+};*/
 
 // Initialize Firebase
 //const firebaseApp = initializeApp(firebaseConfig);
