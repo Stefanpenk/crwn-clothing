@@ -1,4 +1,4 @@
-//import { initializeApp } from "firebase/app";
+import { initializeApp } from "firebase/app";
 import {
   getAuth,
   signInWithRedirect,
@@ -9,7 +9,6 @@ import {
   signOut,
   onAuthStateChanged,
 } from "firebase/auth";
-
 import {
   getFirestore,
   doc,
@@ -21,18 +20,16 @@ import {
   getDocs,
 } from "firebase/firestore";
 
-// Your web app's Firebase configuration
-/*const firebaseConfig = {
-  apiKey: "AIzaSyDg-bdl-A4-1vC0ty8dV8PdSS8X6JuU-g8",
-  authDomain: "crwn-clothing-db-6e9b5.firebaseapp.com",
-  projectId: "crwn-clothing-db-6e9b5",
-  storageBucket: "crwn-clothing-db-6e9b5.appspot.com",
-  messagingSenderId: "273473963090",
-  appId: "1:273473963090:web:03bb6c6d178f5c2705cb8b",
-};*/
+const firebaseConfig = {
+  apiKey: "AIzaSyDDU4V-_QV3M8GyhC9SVieRTDM4dbiT0Yk",
+  authDomain: "crwn-clothing-db-98d4d.firebaseapp.com",
+  projectId: "crwn-clothing-db-98d4d",
+  storageBucket: "crwn-clothing-db-98d4d.appspot.com",
+  messagingSenderId: "626766232035",
+  appId: "1:626766232035:web:506621582dab103a4d08d6",
+};
 
-// Initialize Firebase
-//const firebaseApp = initializeApp(firebaseConfig);
+const firebaseApp = initializeApp(firebaseConfig);
 
 const googleProvider = new GoogleAuthProvider();
 
@@ -50,7 +47,8 @@ export const db = getFirestore();
 
 export const addCollectionAndDocuments = async (
   collectionKey,
-  objectsToAdd
+  objectsToAdd,
+  field
 ) => {
   const collectionRef = collection(db, collectionKey);
   const batch = writeBatch(db);
@@ -86,9 +84,9 @@ export const createUserDocumentFromAuth = async (
 
   const userDocRef = doc(db, "users", userAuth.uid);
 
-  const userSnaphot = await getDoc(userDocRef);
+  const userSnapshot = await getDoc(userDocRef);
 
-  if (!userSnaphot.exists()) {
+  if (!userSnapshot.exists()) {
     const { displayName, email } = userAuth;
     const createdAt = new Date();
 
